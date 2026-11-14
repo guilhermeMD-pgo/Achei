@@ -1,0 +1,87 @@
+ACHEI - SHOPPING CAPIM DOURADO
+==============================
+
+COMO INICIAR NO WINDOWS
+
+1. Extraia o ZIP inteiro para uma pasta (nao execute de dentro do ZIP).
+2. Instale o Node.js 20.9 ou superior: https://nodejs.org/
+3. Abra a pasta extraida.
+4. Clique duas vezes em INICIAR_ACHEI.bat.
+5. Na primeira vez, aguarde o download das dependencias.
+6. O navegador sera aberto em http://localhost:3000.
+
+NAS PROXIMAS VEZES
+Basta clicar duas vezes em INICIAR_ACHEI.bat novamente. As dependencias
+nao serao baixadas de novo se continuarem instaladas.
+
+IMPORTANTE
+- Precisa de internet na primeira inicializacao.
+- Mantenha aberta a janela chamada "Achei - Servidor" enquanto usar o sistema.
+- Para encerrar, feche a janela do servidor.
+- Os cadastros e dados locais ficam na pasta .data. Nao apague essa pasta
+  se quiser preservar os dados cadastrados neste computador.
+- Esta e uma versao local de desenvolvimento; para publicar na internet
+  ainda sera necessario configurar hospedagem e banco de dados persistente.
+
+EXECUCAO MANUAL (OPCIONAL)
+Na pasta do projeto, abra o terminal e execute:
+  npm ci
+  npm run db:migrate
+  npm run db:seed
+  npm run dev
+
+Depois acesse http://localhost:3000.
+
+
+ATUALIZAÇÃO DE INTERFACE
+- Aba Lojas com busca, promoções vigentes e acesso aos detalhes de cada loja.
+- Detalhes da loja com botão para abrir o destino no mapa.
+- Favoritos de lojas vinculados à conta do usuário.
+- Perfil com edição sob demanda; dados de e-mail não ficam expostos o tempo todo.
+- Área do lojista acessível a partir do perfil/configurações para contas autorizadas.
+- Mapa vetorial próprio, sem usar a imagem da planta como fundo, com seleção de lojas e traçado esquemático de rota.
+
+IMPORTANTE: a rota e o desenho dos corredores são uma primeira reconstrução esquemática baseada na planta. Não devem ser usados como orientação oficial até validação das passagens, acessos e coordenadas no shopping.
+
+ATUALIZAÇÃO — MAPA FICTÍCIO E ACHEI TOKENS
+- O mapa agora é um shopping fictício de demonstração, desenhado do zero; não representa a planta real do Capim Dourado.
+- A identidade visual usa ouro champanhe neutro e grafite, evitando tons alaranjados.
+- O perfil possui uma carteira Achei Tokens separada da página de Configurações.
+- Campanhas de protótipo permitem reivindicar 10 Achei Tokens uma única vez por conta e campanha.
+- Achei Tokens são pontos demonstrativos, não dinheiro, não têm cotação e não podem ser sacados ou convertidos. Um cashback financeiro real exigiria regras comerciais, validação de compras e integração com os lojistas.
+- Na primeira inicialização, o banco recebe a migração 003_loyalty_tokens.sql automaticamente pelo inicializador.
+
+
+ATUALIZAÇÃO DO MAPA E DAS CONFIGURAÇÕES
+- Mapa fictício ampliado, com dois pavimentos.
+- Seleção reduzida a dez lojas de demonstração, com marcas tipográficas ilustrativas.
+- Banheiros, elevadores e escadas indicados nos dois pavimentos.
+- Configurações com preferências de promoções, tokens, dicas de rota e mapa compacto.
+- Cabeçalho consulta a sessão para substituir “Visitante” pelo nome após o login.
+- A planta e os pontos de serviços continuam ilustrativos, não servem como orientação real de emergência ou acessibilidade.
+
+
+ATUALIZACAO - SEXTA-FEIRA 13, ROTAS, LOGOS E PROMOCOES
+- Easter egg: ha um gato preto escondido no canto inferior direito do mapa. Clique nele
+  para ativar o modo "Sexta-feira 13" (luzes piscando, nevoa, morcegos e rotas vermelhas).
+  Clique de novo para desfazer. Em uma sexta-feira 13 de verdade, o gato fica pulsando.
+- Ao clicar em uma loja do mapa, aparecem TODAS as rotas ate ela, uma cor por ponto de
+  partida (entrada principal, elevador, escadas e banheiros; no 2o pavimento, sem entrada).
+  A lista na lateral permite destacar cada rota; ha botoes para mostrar todas ou ocultar.
+- O catalogo caiu de 20 para 10 lojas: Renner, C&A, Riachuelo, Centauro, Outback,
+  Cinemark, Leitura, McDonald's, Giraffas e Subway. As outras 10 sao desativadas
+  automaticamente ao iniciar (dados antigos nao sao apagados).
+- Logos nas lojas: aparecem no mapa, na aba Lojas, nos detalhes da loja e nas Promocoes.
+  Sao marcas de texto ilustrativas; para usar o logotipo real veja public/logos/LEIA-ME.txt.
+- Cada loja tem 2 produtos e 2 promocoes, cada promocao ligada a um produto. Precos nao sao
+  informados (confirmar com a loja). Os detalhes da loja mostram o catalogo.
+- Os dados sao atualizados toda vez que INICIAR_ACHEI.bat roda (db:seed e db:seed:promotions).
+
+
+ATUALIZACAO - BUSCA, FOTOS DOS PRODUTOS E ROTAS DO 2O PAVIMENTO
+- Pesquisar agora funciona: ignora acentos, aceita plural, erros de digitacao e sinonimos
+  (ex.: "camisa" mostra todas as lojas com camisa ou camiseta). Cada resultado tem botao
+  para ver a loja no mapa com as rotas. Sem resultado exato, o site sugere itens parecidos.
+- Produtos tem imagem. Sao ilustracoes; para usar fotos reais veja public/products/LEIA-ME.txt.
+- No 2o pavimento as rotas saem somente da escada e do elevador (banheiros e entrada ficam
+  como pontos de partida apenas no terreo).
