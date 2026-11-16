@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: achei
+    runtime: docker
+    plan: starter          # disco persistente exige plano pago
+    healthCheckPath: /
+    disk:
+      name: achei-data
+      mountPath: /data
+      sizeGB: 1
